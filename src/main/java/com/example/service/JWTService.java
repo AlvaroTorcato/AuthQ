@@ -1,11 +1,11 @@
-package com.example.authq.service;
+package com.example.service;
 
-import com.example.authq.model.JWT;
-import com.example.authq.model.LoginRequest;
-import com.example.authq.model.UserDTO;
-import com.example.authq.model.UserDetailsDTO;
-import com.example.authq.repository.JWTRepository;
-import com.example.authq.repository.UserRepository;
+import com.example.model.JWT;
+import com.example.model.LoginRequest;
+import com.example.model.UserDTO;
+import com.example.model.UserDetailsDTO;
+import com.example.repository.JWTRepository;
+import com.example.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

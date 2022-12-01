@@ -1,7 +1,7 @@
-package com.example.authq.repository;
+package com.example.repository;
 
-import com.example.authq.model.User;
-import com.example.authq.model.UserDTO;
+import com.example.model.User;
+import com.example.model.UserDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

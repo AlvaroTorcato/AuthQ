@@ -1,7 +1,7 @@
-package com.example.authq.repository;
+package com.example.repository;
 
 
-import com.example.authq.model.JWT;
+import com.example.model.JWT;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

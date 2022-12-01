@@ -1,4 +1,4 @@
-package com.example.authq.model;
+package com.example.model;
 
 import java.util.Set;
 

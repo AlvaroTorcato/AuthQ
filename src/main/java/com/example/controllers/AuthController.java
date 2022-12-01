@@ -1,13 +1,11 @@
-package com.example.authq.controllers;
+package com.example.controllers;
 
-import com.example.authq.model.UserDetailsDTO;
-import com.example.authq.service.JWTService;
+import com.example.model.UserDetailsDTO;
+import com.example.service.JWTService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @Tag(name = "Authentication", description = "Endpoints for authenticate the user")
 @RestController
