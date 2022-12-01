@@ -104,7 +104,7 @@ public class RabbitMQConfig {
             return super.isFatal(t);
         }
     }*/
-    String products1Queue = "authentication1_queue_fanout";
+    String products1Queue = "authentications1_queue_fanout";
 
     String productsExchange = "authentications_exchange";
 
