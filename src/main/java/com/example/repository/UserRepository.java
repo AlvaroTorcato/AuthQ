@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Integer> {
-    @Query("select new com.example.authq.model.UserDTO(u) from User u where u.username = :username and u.password = :password")
+    @Query("select new com.example.model.UserDTO(u) from User u where u.username = :username and u.password = :password")
     UserDTO findUserDTO(@Param("username") String username, @Param("password") String password);
-    @Query("select new com.example.authq.model.UserDTO(u) from User u where u.username = :username")
+    @Query("select new com.example.model.UserDTO(u) from User u where u.username = :username")
     UserDTO findUserByUsername(@Param("username") String username);
 }
