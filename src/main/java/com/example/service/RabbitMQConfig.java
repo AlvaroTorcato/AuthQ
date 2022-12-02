@@ -110,7 +110,7 @@ public class RabbitMQConfig {
 
     @Bean
     Queue products1Queue() {
-        return new Queue(products1Queue, false);
+        return new Queue(products1Queue, true);
     }
 
     @Bean
