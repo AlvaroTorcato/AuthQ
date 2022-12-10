@@ -18,6 +18,7 @@ import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ErrorHandler;
+
 @EnableRabbit
 @Configuration
 @EnableAutoConfiguration(exclude = RabbitAutoConfiguration.class)
@@ -103,14 +104,48 @@ public class RabbitMQConfig {
             }
             return super.isFatal(t);
         }
+    }
+    @Bean
+    public FanoutExchange fanout() {
+        return new FanoutExchange("products.fanout");
+    }
+
+
+    @Bean
+    public RabbitMQSender sender() {
+        return new RabbitMQSender();
+    }
+
+    @Bean
+    public CachingConnectionFactory connectionFactory() {
+        return new CachingConnectionFactory("localhost");
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate() {
+        return new RabbitTemplate(connectionFactory());
     }*/
+
     String products1Queue = "authentications1_queue_fanout";
+
+    String products2Queue = "authentications2_queue_fanout";
+    String products3Queue = "authentications3_queue_fanout";
 
     String productsExchange = "authentications_exchange";
 
     @Bean
     Queue products1Queue() {
         return new Queue(products1Queue, true);
+    }
+
+    @Bean
+    Queue products2Queue() {
+        return new Queue(products2Queue, false);
+    }
+
+    @Bean
+    Queue products3Queue() {
+        return new Queue(products3Queue, false);
     }
 
     @Bean
@@ -123,6 +158,15 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(products1Queue).to(exchange);
     }
 
+    @Bean
+    Binding emailBinding(Queue products2Queue, FanoutExchange exchange) {
+        return BindingBuilder.bind(products2Queue).to(exchange);
+    }
+
+    @Bean
+    Binding emailBinding1(Queue products3Queue, FanoutExchange exchange) {
+        return BindingBuilder.bind(products3Queue).to(exchange);
+    }
 
     @Bean
     public MessageConverter messageConverter() {
@@ -171,4 +215,10 @@ public class RabbitMQConfig {
         ObjectMapper objectMapper = new ObjectMapper();
         return new Jackson2JsonMessageConverter(objectMapper);
     }
+
 }
+
+
+
+
+
