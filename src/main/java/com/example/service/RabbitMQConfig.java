@@ -30,8 +30,8 @@ public class RabbitMQConfig {
         return new AnonymousQueue();
     }
     @Bean
-    public Binding binding (FanoutExchange fanout, Queue autoDeleteQUeue){
-        return BindingBuilder.bind(autoDeleteQUeue).to(fanout);
+    public Binding binding (FanoutExchange fanout, Queue autoDeleteQueue){
+        return BindingBuilder.bind(autoDeleteQueue).to(fanout);
     }
    /*
     String products1Queue = "authentications1_queue_fanout";
