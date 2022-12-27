@@ -33,7 +33,7 @@ public class RabbitMQReceiver {
         //jwtService.createJWT(obj);
 
        // repository.save(obj);
-        jwtService.createJWT(obj.getToken());
+        jwtService.createJWT(obj);
     }
 
    /* @Autowired
