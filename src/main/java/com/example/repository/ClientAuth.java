@@ -17,7 +17,7 @@ public class ClientAuth {
     private DirectExchange directExchange;
     public List<JWT> send() {
         int n= 0;
-        List<JWT> response = (List<JWT>) rabbitTemplate.convertSendAndReceive(directExchange.getName(),"rpc", n);
+        List<JWT> response = (List<JWT>) rabbitTemplate.convertSendAndReceive(directExchange.getName(),"jwt", n);
 
         System.out.println("Got " + response + "");
         return response;
